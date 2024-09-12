@@ -1,12 +1,11 @@
-#!/usr/bin/env python
+import re
+from pathlib import Path
+from typing import Dict, Tuple
+
 import toml
 from rich.console import Console
-import re
-
-from typing import Tuple, Dict
 
 from utils.console import handle_input
-
 
 console = Console()
 config = dict  # autocomplete
@@ -167,4 +166,5 @@ If you see any prompts, that means that you have unset/incorrectly set variables
 
 
 if __name__ == "__main__":
-    check_toml("utils/.config.template.toml", "config.toml")
+    directory = Path().absolute()
+    check_toml(f"{directory}/utils/.config.template.toml", "config.toml")
